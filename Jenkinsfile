@@ -16,10 +16,10 @@ node ('Ubuntu-app-agent'){
         app = docker.build("svla299/snake")
     }
     stage('Post-to-dockerhub') { 
-        docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+        docker.withRegistry('https://registry.hub.docker.com', 'svla299') {
             app.push("latest")
-        			}
-         }
+        }
+    }
     /*
     stage('SECURITY-IMAGE-SCANNER'){
         build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
