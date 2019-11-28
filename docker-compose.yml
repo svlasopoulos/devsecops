@@ -1,7 +1,7 @@
 version: '2'
 services:
   snake:
-    image: 'svla299/snake:test'
+    image: 'svla299/snake'
     environment:
       - "PORT:3000"
     ports:
