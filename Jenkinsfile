@@ -16,7 +16,8 @@ node ('Ubuntu-app-agent'){
         app = docker.build("svla299/snake")
     }
     stage('Post-to-dockerhub') { 
-        docker.withRegistry("https://registry.hub.docker.com", 'svla_docker') {
+        /*docker.withRegistry("https://registry.hub.docker.com", 'svla_docker') {*/
+        docker.withRegistry("", 'svla_docker') {
             app.push("latest")
         }
     }
