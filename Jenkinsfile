@@ -27,7 +27,9 @@ node ('Ubuntu-app-agent'){
     }
     */
     stage('Pull-image-server') {
-        sh "docker-compose down"
+        /*sh "docker-compose down"*/
+        sh "docker stop $(docker ps -a -q)"
+        sh "docker rm $(docker ps -a -q)"
         sh "docker-compose up -d"	
     }
     /*
