@@ -28,7 +28,7 @@ node ('Ubuntu-app-agent'){
     */
     stage('Pull-image-server') {
         /*sh "docker-compose down"*/
-        sh 'docker rmi $(docker images | grep "^<none>" | awk "{print $3}") || true'
+        sh 'docker rmi $(docker images -q -f dangling=true) || true'
         sh 'docker container stop $(docker container ls -aq) || true'
         sh 'docker container rm $(docker container ls -aq) || true'
         sh 'docker-compose up -d'	
