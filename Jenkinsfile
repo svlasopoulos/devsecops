@@ -31,7 +31,7 @@ node ('Ubuntu-app-agent'){
         sh 'docker rmi $(docker images -q -f dangling=true) || true'
         sh 'docker container stop $(docker container ls -aq) || true'
         sh 'docker container rm $(docker container ls -aq) || true'
-        sh 'docker-compose up -d'	
+        sh '/app-test/node-multiplayer-snake/docker-compose up -d'	
     }
     /*
     stage('DAST') {
